@@ -1,0 +1,31 @@
+WePay Ruby SDK
+
+To use this SDK:
+
+# creates a wepay object you can use to make calls
+wepay = WePay.new(client_id, client_secret)
+
+# get the authorization url 
+# you send the user to this url to authorize the application, they will return to your redirect with a code in the get parameters
+redirect_uri = "http://myexamplesite.com/wepay"
+url = wepay.oauth2_authorize_url(redirect_uri)
+redirect_to(url)
+
+# once you have the code you can get an access token
+response = wepay.oauth2_token(code, redirect_uri)
+access_token = response['access_token']
+
+
+# makes a call to the /user endpoint (which requires no parameters)
+response = wepay.call('/user', access_token)
+
+# you can also open a payment account for the user
+response = wepay.call('/account/create', access_token, {:name => "test account", "description" => "this is only a test" })
+
+
+
+
+
+check out our developer docs at https://stage.wepay.com/developer for more info
+
+or email api@wepay.com if you have any questions.
