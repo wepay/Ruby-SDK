@@ -23,7 +23,8 @@ response = wepay.call('/user', access_token)
 response = wepay.call('/account/create', access_token, {:name => "test account", "description" => "this is only a test" })
 
 
-
+# switching to production
+When you want to switch to production, change the _use_stage parameter on the WePay constructer to false. 
 
 
 check out our developer docs at https://stage.wepay.com/developer for more info
