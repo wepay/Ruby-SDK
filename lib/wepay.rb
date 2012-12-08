@@ -35,7 +35,6 @@ class WePay
 	def call(call, access_token = false, params = false)
 		# get the url
 		url = URI.parse(@api_endpoint + call)
-		p url
 		# construct the call data and access token
 		call = Net::HTTP::Post.new(url.path, initheader = {'Content-Type' =>'application/json', 'User-Agent' => 'WePay Ruby SDK'})
 		if params
@@ -46,6 +45,7 @@ class WePay
 		end
 		# create the request object
 		request = Net::HTTP.new(url.host, url.port)
+		request.read_timeout = 30
 		request.use_ssl = @use_ssl
 		# make the call
 		response = request.start {|http| http.request(call) }
