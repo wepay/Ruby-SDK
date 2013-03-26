@@ -2,7 +2,8 @@ WePay Ruby SDK
 
 To use this SDK:
 
-# creates a wepay object you can use to make calls. Set use_stage to true for test/stage, false for production.
+# creates a wepay object you can use to make calls.
+# Set use_stage to true for test/stage, false for production.
 wepay = WePay.new(client_id, client_secret, use_stage)
 
 # get the authorization url 
