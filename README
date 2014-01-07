@@ -6,7 +6,7 @@ To use this SDK:
 # Set use_stage to true for test/stage, false for production.
 wepay = WePay.new(client_id, client_secret, use_stage)
 
-# To set an [API-Version](https://www.wepay.com/developer/reference/versioning) in the header with your call request, use:
+To set an [API-Version](https://www.wepay.com/developer/reference/versioning) in the header with your call request, use:
 wepay = WePay.new(client_id, client_secret, use_stage, true, api_version)
 
 # get the authorization url
