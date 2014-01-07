@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'wepay'
-  s.version     = '0.0.2'
-  s.date        = '2013-11-25'
+  s.version     = '0.0.3'
+  s.date        = '2014-01-07'
   s.summary     = "Ruby SDK for the WePay API"
   s.description = "The WePay Ruby SDK lets you easily make WePay API calls from ruby."
   s.authors     = ["WePay"]
