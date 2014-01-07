@@ -18,7 +18,7 @@ class WePay
 	PRODUCTION_UI_ENDPOINT = "https://www.wepay.com/v2"
 		
 	# initializes the API application, api_endpoint should be something like 'https://stage.wepay.com/v2'
-	def initialize(_client_id, _client_secret, _use_stage = true, _use_ssl = true)
+	def initialize(_client_id, _client_secret, _use_stage = true, _use_ssl = true, _api_version = nil)
 		@client_id = _client_id
 		@client_secret = _client_secret
 		if _use_stage
@@ -29,6 +29,7 @@ class WePay
 			@ui_endpoint = PRODUCTION_UI_ENDPOINT
 		end
 		@use_ssl = _use_ssl
+		@api_version = _api_version
 	end
 	
 	# make a call to the WePay API
@@ -43,6 +44,12 @@ class WePay
 		if access_token
 			call.add_field('Authorization: Bearer', access_token);
 		end
+        
+        # send Api Version header
+		if @api_version
+			call.add_field('Api-Version', @api_version);
+		end
+
 		# create the request object
 		request = Net::HTTP.new(url.host, url.port)
 		request.read_timeout = 30

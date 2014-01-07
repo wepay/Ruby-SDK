@@ -6,7 +6,10 @@ To use this SDK:
 # Set use_stage to true for test/stage, false for production.
 wepay = WePay.new(client_id, client_secret, use_stage)
 
-# get the authorization url 
+# To set an [API-Version](https://www.wepay.com/developer/reference/versioning) in the header with your call request, use:
+wepay = WePay.new(client_id, client_secret, use_stage, true, api_version)
+
+# get the authorization url
 # you send the user to this url to authorize the application, they will return to your redirect with a code in the get parameters
 redirect_uri = "http://myexamplesite.com/wepay"
 url = wepay.oauth2_authorize_url(redirect_uri)
