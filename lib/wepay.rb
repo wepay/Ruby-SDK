@@ -45,7 +45,7 @@ class WePay
 			call.add_field('Authorization: Bearer', access_token);
 		end
         
-        # send Api Version header
+        # send Api Version header with call request
 		if @api_version
 			call.add_field('Api-Version', @api_version);
 		end
