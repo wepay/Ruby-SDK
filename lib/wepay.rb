@@ -27,16 +27,20 @@ class WePay
   end
   
   # make a call to the WePay API
-  def call(call, access_token = false, params = {})
+  def call(call, access_token = false, params = {}, authenticated_call=true)
     url = URI.parse(@api_endpoint + call)
     call = Net::HTTP::Post.new(url.path, initheader = {'Content-Type' =>'application/json', 'User-Agent' => 'WePay Ruby SDK'})
-    unless params.empty?{}
-      params = params.merge({"client_id" => @client_id, "client_secret" => @client_secret})
+    unless params.empty?
+      if authenticated_call then params = params.merge({"client_id" => @client_id, "client_secret" => @client_secret}); end
       call.body = params.to_json
     end
+    add_call_headers(access_token)
+    make_request(call, url)
+  end
+
+  def add_call_headers(access_token=false)
     if access_token then call.add_field('Authorization: Bearer', access_token); end
     if @api_version then call.add_field('Api-Version', @api_version); end
-    make_request(call, url)
   end
 
   def make_request(call, url)
