@@ -29,6 +29,7 @@ pushdocs: docs
 .PHONY: gem
 gem: version
 	@sed "s/@@version@@/$$(cat .\/VERSION)/" < ./wepay.gemtmpl > ./wepay.gemspec
+	@cat ./wepay.gemspec | sed "s/@@date@@/$$(date "+%Y-%m-%d")/" > ./wepay.gemspec
 	gem build wepay.gemspec
 
 .PHONY: pushgem

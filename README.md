@@ -17,6 +17,8 @@ information, or you may email <api@wepay.com> if you have any other questions.
 This project uses [Semantic Versioning](http://semver.org) for managing
 backwards-compatibility.
 
+> **NOTE:** Version 0.2.0 is not strictly backwards-compatible with the earlier 0.0.x versions.
+
 * [API Reference](https://wepay.github.io/Ruby-SDK/)
 
 ## Examples
