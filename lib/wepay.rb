@@ -31,7 +31,7 @@ class WePay
   # make a call to the WePay API
   def call(call, access_token = false, params = false)
     # get the url
-    url = URI.parse(@api_endpoint + call)
+    url = URI.parse(@api_endpoint + (call[0,1] == '/' ? call : "/#{ call }"))
     # construct the call data and access token
     call = Net::HTTP::Post.new(url.path, initheader = {'Content-Type' =>'application/json', 'User-Agent' => 'WePay Ruby SDK'})
     if params
