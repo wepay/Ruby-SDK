@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; WePay Signer for Ruby
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="file_list.html"></iframe>
+
+      <div id="content"><div id='filecontents'><h1>WePay SDK for Ruby</h1>
+
+<p><a href="https://github.com/wepay/Ruby-SDK"><img src="http://img.shields.io/badge/source-wepay/Ruby-SDK-blue.svg?style=flat-square" alt="Source" /></a>
+<a href="https://rubygems.org/gems/wepay"><img src="https://img.shields.io/gem/v/wepay.svg?style=flat-square" alt="Latest Stable Version" /></a>
+<a href="https://rubygems.org/gems/wepay"><img src="https://img.shields.io/gem/dt/wepay.svg?style=flat-square" alt="Total Downloads" /></a>
+<a href="https://github.com/wepay/Ruby-SDK/issues"><img src="http://img.shields.io/github/issues/wepay/Ruby-SDK.svg?style=flat-square" alt="Open Issues" /></a>
+<a href="https://travis-ci.org/wepay/Ruby-SDK"><img src="http://img.shields.io/travis/wepay/Ruby-SDK/master.svg?style=flat-square" alt="Build Status" /></a>
+<a href="https://coveralls.io/r/wepay/Ruby-SDK?branch=master"><img src="http://img.shields.io/coveralls/wepay/Ruby-SDK/master.svg?style=flat-square" alt="Coverage Status" /></a>
+<a href="https://codeclimate.com/github/wepay/Ruby-SDK"><img src="http://img.shields.io/codeclimate/github/wepay/Ruby-SDK.svg?style=flat-square" alt="Code Climate" /></a>
+<a href="https://scrutinizer-ci.com/g/wepay/Ruby-SDK"><img src="http://img.shields.io/scrutinizer/g/wepay/Ruby-SDK.svg?style=flat-square" alt="Code Quality" /></a>
+<a href="https://github.com/wepay"><img src="http://img.shields.io/badge/author-@wepay-blue.svg?style=flat-square" alt="Author" /></a>
+<a href="https://github.com/skyzyx"><img src="http://img.shields.io/badge/author-@skyzyx-blue.svg?style=flat-square" alt="Author" /></a></p>
+
+<p>Check out our developer docs at <a href="https://stage.wepay.com/developer">https://stage.wepay.com/developer</a> for more
+information, or you may email <a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#97;&#x70;&#x69;&#64;&#119;&#101;&#112;&#97;&#x79;&#46;&#x63;&#x6f;&#109;">&#97;&#x70;&#105;&#x40;&#119;&#101;&#x70;&#x61;&#x79;&#x2e;&#x63;&#x6f;&#x6d;</a> if you have any other questions.</p>
+
+<p>This project uses <a href="http://semver.org">Semantic Versioning</a> for managing
+backwards-compatibility.</p>
+
+<ul>
+<li><a href="https://wepay.github.io/Ruby-SDK/">API Reference</a></li>
+</ul>
+
+
+<h2>Examples</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client_id'>client_id</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>your_client_id</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client_secret'>client_secret</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>your_client_secret</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_use_stage'>use_stage</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+<span class='id identifier rubyid_wepay'>wepay</span> <span class='op'>=</span> <span class='const'>WePay</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_client_id'>client_id</span><span class='comma'>,</span> <span class='id identifier rubyid_client_secret'>client_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_use_stage'>use_stage</span><span class='rparen'>)</span>
+
+<span class='comment'># Get the OAuth 2.0 authorization URL. Send the user to this URL to authorize
+</span><span class='comment'># the application, then they will return to your `redirect_uri` with a code as
+</span><span class='comment'># a GET parameter.
+</span><span class='id identifier rubyid_redirect_uri'>redirect_uri</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://myexamplesite.com/wepay</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id identifier rubyid_wepay'>wepay</span><span class='period'>.</span><span class='id identifier rubyid_oauth2_authorize_url'>oauth2_authorize_url</span><span class='lparen'>(</span><span class='id identifier rubyid_redirect_uri'>redirect_uri</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+<span class='comment'># Once you have the OAuth 2.0 code, you can request an access token.
+</span><span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_wepay'>wepay</span><span class='period'>.</span><span class='id identifier rubyid_oauth2_token'>oauth2_token</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_redirect_uri'>redirect_uri</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_access_token'>access_token</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>access_token</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+<span class='comment'># Make a call to the `/user` endpoint (which requires no parameters).
+</span><span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_wepay'>wepay</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/user</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
+
+<span class='comment'># You may also open a payment account for the user.
+</span><span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_wepay'>wepay</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/account/create</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='lbrace'>{</span>
+  <span class='symbol'>:name</span>        <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test account</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:description</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this is only a test</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2>Installation</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wepay</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>And include it in your scripts:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wepay</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<h2>Testing</h2>
+
+<p>Firstly, run <code>bundle install</code> to download and install the dependencies.</p>
+
+<p>You can run the tests as follows:</p>
+
+<pre class="code bash"><code class="bash">make test
+</code></pre>
+
+<h2>API Reference</h2>
+
+<p>The API Reference is generated by a tool called <a href="http://yardoc.org">YARD</a>. Once it's installed, you can generate
+updated documentation by running the following command in the root of the repository.</p>
+
+<pre class="code bash"><code class="bash">make docs
+</code></pre>
+
+<h2>Deploying</h2>
+
+<p>The <code>Makefile</code> (yes, <code>Makefile</code>) has a series of commands to simplify the development and deployment process.</p>
+
+<h3><code>make</code></h3>
+
+<p>Running <code>make</code> by itself will show you a list of available sub-commands.</p>
+
+<pre class="code bash"><code class="bash">$ make
+all
+docs
+gem
+install
+pushdocs
+pushgem
+tag
+test
+version
+</code></pre>
+
+<h3><code>make pushdocs</code></h3>
+
+<p>You will need to have write-access to the <code>wepay/Ruby-SDK</code> repository on GitHub. You should have already set up:</p>
+
+<ul>
+<li>Your SSH key with your GitHub account.</li>
+<li>Had your GitHub user given write-access to the repository.</li>
+</ul>
+
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make pushdocs
+</code></pre>
+
+<p>You can view your changes at <a href="https://wepay.github.io/Ruby-SDK/">https://wepay.github.io/Ruby-SDK/</a>.</p>
+
+<h3><code>make pushgem</code></h3>
+
+<p>You will need to have pulled-down the proper gem credentials first. When prompted, enter your
+<a href="http://rubygems.org">RubyGems</a> password.</p>
+
+<pre class="code bash"><code class="bash">curl -u qrush https://rubygems.org/api/v1/api_key.yaml &gt; \
+~/.gem/credentials; chmod 0600 ~/.gem/credentials
+</code></pre>
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make pushgem
+</code></pre>
+
+<p>You can view your changes at <a href="https://rubygems.org/gems/wepay">https://rubygems.org/gems/wepay</a>.</p>
+
+<h3><code>make tag</code></h3>
+
+<p>You will need to have a <a href="https://keybase.io">Keybase</a> account first, including setting-up the
+<a href="https://keybase.io/docs/command_line/prerequisites"><code>keybase</code> CLI tool</a>.</p>
+
+<p>Then you can run:</p>
+
+<pre class="code bash"><code class="bash">make tag
+</code></pre>
+
+<p>You can view your changes in the <code>SIGNED.md</code> file.</p>
+
+<h2>Contributing</h2>
+
+<p>Here's the process for contributing:</p>
+
+<ol>
+<li>Fork Signer to your GitHub account.</li>
+<li>Clone your GitHub copy of the repository into your local workspace.</li>
+<li>Write code, fix bugs, and add tests with 100% code coverage.</li>
+<li>Commit your changes to your local workspace and push them up to your GitHub copy.</li>
+<li>You submit a GitHub pull request with a description of what the change is.</li>
+<li>The contribution is reviewed. Maybe there will be some banter back-and-forth in the comments.</li>
+<li>If all goes well, your pull request will be accepted and your changes are merged in.</li>
+</ol>
+
+
+<h2>Authors, Copyright &amp; Licensing</h2>
+
+<ul>
+<li>Copyright (c) 2015 <a href="http://wepay.com">WePay</a></li>
+</ul>
+
+
+<p>See also the list of <a href="https://github.com/wepay/Ruby-SDK/graphs/contributors">contributors</a> who participated in this project.</p>
+
+<p>Licensed for use under the terms of the <a href="http://opensource.org/licenses/Apache-2.0">Apache 2.0</a> license.</p>
+</div></div>
+
+      <div id="footer">
+  Generated on Fri Apr 24 23:50:30 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+    </div>
+  </body>
+</html>
