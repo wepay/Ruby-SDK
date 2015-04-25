@@ -73,7 +73,7 @@
 <a href="https://github.com/skyzyx"><img src="http://img.shields.io/badge/author-@skyzyx-blue.svg?style=flat-square" alt="Author" /></a></p>
 
 <p>Check out our developer docs at <a href="https://stage.wepay.com/developer">https://stage.wepay.com/developer</a> for more
-information, or you may email <a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#x61;&#112;&#x69;&#x40;&#x77;&#101;&#x70;&#97;&#x79;&#x2e;&#99;&#x6f;&#109;">&#97;&#112;&#x69;&#64;&#119;&#x65;&#x70;&#97;&#121;&#46;&#x63;&#111;&#x6d;</a> if you have any other questions.</p>
+information, or you may email <a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#58;&#x61;&#112;&#x69;&#x40;&#x77;&#101;&#112;&#x61;&#121;&#x2e;&#x63;&#111;&#109;">&#97;&#112;&#105;&#64;&#119;&#101;&#x70;&#97;&#x79;&#x2e;&#x63;&#111;&#x6d;</a> if you have any other questions.</p>
 
 <p>This project uses <a href="http://semver.org">Semantic Versioning</a> for managing
 backwards-compatibility.</p>
@@ -182,13 +182,16 @@ version
 <p>You will need to have pulled-down the proper gem credentials first. When prompted, enter your
 <a href="http://rubygems.org">RubyGems</a> password.</p>
 
-<pre class="code bash"><code class="bash">curl -u qrush https://rubygems.org/api/v1/api_key.yaml &gt; \
-~/.gem/credentials; chmod 0600 ~/.gem/credentials
-</code></pre>
+<p>Login and view your <a href="https://rubygems.org/profile/edit">RubyGems profile page</a> to see the proper command.</p>
 
 <p>Then you can run:</p>
 
 <pre class="code bash"><code class="bash">make pushgem
+</code></pre>
+
+<p>If you need to <a href="https://stackoverflow.com/questions/8487218/how-to-add-more-owners-to-a-gem-in-rubygem">add an additional gem owner</a>:</p>
+
+<pre class="code bash"><code class="bash">gem owner wepay -a api@wepay.com
 </code></pre>
 
 <p>You can view your changes at <a href="https://rubygems.org/gems/wepay">https://rubygems.org/gems/wepay</a>.</p>
@@ -233,7 +236,7 @@ version
 </div></div>
 
       <div id="footer">
-  Generated on Sat Apr 25 00:01:27 2015 by
+  Generated on Sat Apr 25 00:26:14 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>
