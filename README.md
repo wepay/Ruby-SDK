@@ -1,6 +1,6 @@
 # WePay SDK for Ruby
 
-[![Source](http://img.shields.io/badge/source-wepay/Ruby-SDK-blue.svg?style=flat-square)](https://github.com/wepay/Ruby-SDK)
+[![Source](http://img.shields.io/badge/source-wepay/Ruby–SDK-blue.svg?style=flat-square)](https://github.com/wepay/Ruby-SDK)
 [![Latest Stable Version](https://img.shields.io/gem/v/wepay.svg?style=flat-square)](https://rubygems.org/gems/wepay)
 [![Total Downloads](https://img.shields.io/gem/dt/wepay.svg?style=flat-square)](https://rubygems.org/gems/wepay)
 [![Open Issues](http://img.shields.io/github/issues/wepay/Ruby-SDK.svg?style=flat-square)](https://github.com/wepay/Ruby-SDK/issues)
