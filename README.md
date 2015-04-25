@@ -122,10 +122,7 @@ You can view your changes at <https://wepay.github.io/Ruby-SDK/>.
 You will need to have pulled-down the proper gem credentials first. When prompted, enter your
 [RubyGems](http://rubygems.org) password.
 
-```bash
-curl -u qrush https://rubygems.org/api/v1/api_key.yaml > \
-~/.gem/credentials; chmod 0600 ~/.gem/credentials
-```
+Login and view your RubyGems profile page to see the proper command.
 
 Then you can run:
 
