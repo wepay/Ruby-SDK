@@ -122,12 +122,18 @@ You can view your changes at <https://wepay.github.io/Ruby-SDK/>.
 You will need to have pulled-down the proper gem credentials first. When prompted, enter your
 [RubyGems](http://rubygems.org) password.
 
-Login and view your RubyGems profile page to see the proper command.
+Login and view your [RubyGems profile page](https://rubygems.org/profile/edit) to see the proper command.
 
 Then you can run:
 
 ```bash
 make pushgem
+```
+
+If you need to [add an additional gem owner](https://stackoverflow.com/questions/8487218/how-to-add-more-owners-to-a-gem-in-rubygem):
+
+```bash
+gem owner wepay -a api@wepay.com
 ```
 
 You can view your changes at <https://rubygems.org/gems/wepay>.
