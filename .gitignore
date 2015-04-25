@@ -1,0 +1,6 @@
+/.yardoc
+/*.gem
+/*.gemspec
+/coverage
+/Gemfile.lock
+/vendor

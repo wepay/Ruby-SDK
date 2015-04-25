@@ -1,0 +1,4 @@
+--title 'WePay Signer for Ruby'
+--markup markdown
+--markup-provider rdiscount
+--plugin sitemap

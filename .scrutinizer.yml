@@ -1,0 +1,139 @@
+checks:
+    ruby:
+        code_rating: true
+        duplicate_code: true
+        style_while_until_do: true
+        style_variable_name:
+            enforced_style: snake_case
+        style_variable_interpolation: true
+        style_unneeded_percent_x: true
+        style_unneeded_percent_q: true
+        style_unless_else: true
+        style_trailing_whitespace: true
+        style_tab: true
+        style_space_before_semicolon: true
+        style_space_before_modifier_keyword: true
+        style_space_before_comment: true
+        style_space_before_block_braces:
+            enforced_style: space
+        style_space_around_equals_in_parameter_default:
+            enforced_style: space
+        style_space_after_semicolon: true
+        style_space_after_not: true
+        style_space_after_method_name: true
+        style_space_after_control_keyword: true
+        style_space_after_comma: true
+        style_space_after_colon: true
+        style_single_space_before_first_arg: true
+        style_signal_exception:
+            enforced_style: semantic
+        style_single_line_block_params: true
+        style_self_assignment: true
+        style_rescue_modifier: true
+        style_redundant_return:
+            allow_multiple_return_values: false
+        style_redundant_self: true
+        style_redundant_begin: true
+        style_proc: true
+        style_predicate_name: true
+        style_perl_backrefs: true
+        style_percent_literal_delimiters: true
+        style_parentheses_around_condition:
+            allow_safe_assignment: true
+        style_parameter_lists:
+            max: '5'
+            count_keyword_args: true
+        style_not: true
+        style_non_nil_check:
+            include_semantic_changes: false
+        style_nil_comparison: true
+        style_nested_ternary_operator: true
+        style_negated_while: true
+        style_negated_if: true
+        style_module_function: true
+        style_method_name:
+            enforced_style: snake_case
+        style_method_def_parentheses:
+            enforced_style: require_parentheses
+        style_method_call_parentheses: true
+        style_leading_comment_space: true
+        style_indentation_width: true
+        style_indentation_consistency: true
+        style_indent_array: true
+        style_indent_hash:
+            enforced_style: consistent
+        style_global_vars: true
+        style_file_name: true
+        style_end_of_line: true
+        style_empty_literal: true
+        style_empty_lines_around_body: false
+        style_empty_lines: true
+        style_empty_line_between_defs:
+            allow_adjacent_one_line_defs: true
+        style_double_negation: true
+        style_documentation: true
+        style_deprecated_hash_methods: true
+        style_def_with_parentheses: true
+        style_constant_name: true
+        style_comment_annotation: true
+        style_collection_methods: true
+        style_class_check:
+            enforced_style: 'is_a?'
+        style_class_and_module_camel_case: true
+        style_block_nesting:
+            max: '3'
+        style_ascii_identifiers: true
+        style_align_parameters:
+            enforced_style: with_first_parameter
+        style_align_hash:
+            enforced_hash_rocket_style: key
+            enforced_colon_style: key
+            enforced_last_argument_hash_style: always_inspect
+        style_align_array: true
+        style_accessor_method_name: false
+        rails_output: true
+        rails_default_scope: true
+        lint_useless_setter_call: true
+        lint_useless_else_without_rescue: true
+        lint_useless_assignment: true
+        lint_useless_access_modifier: true
+        lint_unused_method_argument: true
+        lint_unused_block_argument: true
+        lint_unreachable_code: true
+        lint_underscore_prefixed_variable_name: true
+        lint_string_conversion_in_interpolation: true
+        lint_space_before_first_arg: true
+        lint_shadowing_outer_local_variable: true
+        lint_rescue_exception: true
+        lint_parentheses_as_grouped_expression: true
+        lint_literal_in_interpolation: true
+        lint_literal_in_condition: true
+        lint_invalid_character_literal: true
+        lint_handle_exceptions: true
+        lint_eval: true
+        lint_ensure_return: true
+        lint_end_in_method: true
+        lint_empty_interpolation: true
+        lint_empty_ensure: true
+        lint_else_layout: true
+        lint_deprecated_class_methods: true
+        lint_debugger: true
+        lint_condition_position: true
+        lint_assignment_in_condition:
+            allow_safe_assignment: true
+        lint_ambiguous_regexp_literal: true
+        lint_ambiguous_operator: true
+        style_line_length:
+            max: '120'
+            allow_uri: true
+
+build:
+    tests:
+        override:
+            -
+                command: 'bundle exec rake test'
+                environment:
+                    'SCRUTINIZER_CC_FILE': 'my-coverage'
+                coverage:
+                    file: 'my-coverage'
+                    format: 'rb-cc'

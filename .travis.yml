@@ -1,0 +1,38 @@
+language: ruby
+
+rvm:
+  - 1.9
+  - 2.0
+  - 2.1
+  - 2.2
+  - ruby-head
+  - jruby-head
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
+
+sudo: false
+
+bundler_args: "--without docs"
+
+env:
+  - CODECLIMATE_REPO_TOKEN=be5cbb5c1c8e3183420eab397beb625bf667461624ff4ec511a0bd4c71b2b4f8
+
+# before_script:
+
+script:
+  - bundle install --without docs
+  - bundle exec make test
+
+notifications:
+  email:
+    - ryan.parman@wepay.com
+  notifications:
+    hipchat:
+      rooms:
+        secure: e96uBaWwq5l/9PpN5C0sdYNP3GDPIqtp8iY7z2XYaFQ8nJQv8Gza96dhQuvozAGMaQ7dZoImKSSGPR5FAww7380uCRtVsQUEEL/AtC+4bB0uR6HTSgkyfFXh9cwsNwyEdaEP347jx4ZwlmLk7LFnHt7FOMsHEmrOkDLM1bX8Ui4=
+      template:
+        - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
