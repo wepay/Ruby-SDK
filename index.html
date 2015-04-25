@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ruby-sdk by wepay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ruby-sdk</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/wepay/Ruby-SDK" class="btn">View on GitHub</a>
+      <a href="https://github.com/wepay/Ruby-SDK/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wepay/Ruby-SDK/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="wepay-sdk-for-ruby" class="anchor" href="#wepay-sdk-for-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>WePay SDK for Ruby</h1>
+
+<p><a href="https://github.com/wepay/Ruby-SDK"><img src="http://img.shields.io/badge/source-wepay/Ruby-SDK-blue.svg?style=flat-square" alt="Source"></a>
+<a href="https://rubygems.org/gems/wepay"><img src="https://img.shields.io/gem/v/wepay.svg?style=flat-square" alt="Latest Stable Version"></a>
+<a href="https://rubygems.org/gems/wepay"><img src="https://img.shields.io/gem/dt/wepay.svg?style=flat-square" alt="Total Downloads"></a>
+<a href="https://github.com/wepay/Ruby-SDK/issues"><img src="http://img.shields.io/github/issues/wepay/Ruby-SDK.svg?style=flat-square" alt="Open Issues"></a>
+<a href="https://travis-ci.org/wepay/Ruby-SDK"><img src="http://img.shields.io/travis/wepay/Ruby-SDK/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://coveralls.io/r/wepay/Ruby-SDK?branch=master"><img src="http://img.shields.io/coveralls/wepay/Ruby-SDK/master.svg?style=flat-square" alt="Coverage Status"></a>
+<a href="https://codeclimate.com/github/wepay/Ruby-SDK"><img src="http://img.shields.io/codeclimate/github/wepay/Ruby-SDK.svg?style=flat-square" alt="Code Climate"></a>
+<a href="https://scrutinizer-ci.com/g/wepay/Ruby-SDK"><img src="http://img.shields.io/scrutinizer/g/wepay/Ruby-SDK.svg?style=flat-square" alt="Code Quality"></a>
+<a href="https://github.com/wepay"><img src="http://img.shields.io/badge/author-@wepay-blue.svg?style=flat-square" alt="Author"></a>
+<a href="https://github.com/skyzyx"><img src="http://img.shields.io/badge/author-@skyzyx-blue.svg?style=flat-square" alt="Author"></a></p>
+
+<p>Check out our developer docs at <a href="https://stage.wepay.com/developer">https://stage.wepay.com/developer</a> for more
+information, or you may email <a href="mailto:api@wepay.com">api@wepay.com</a> if you have any other questions.</p>
+
+<p>This project uses <a href="http://semver.org">Semantic Versioning</a> for managing
+backwards-compatibility.</p>
+
+<ul>
+<li><a href="https://wepay.github.io/Ruby-SDK/">API Reference</a></li>
+</ul>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<div class="highlight highlight-ruby"><pre>client_id <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>your_client_id<span class="pl-pds">'</span></span>
+client_secret <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>your_client_secret<span class="pl-pds">'</span></span>
+use_stage <span class="pl-k">=</span> <span class="pl-c1">true</span>
+
+wepay <span class="pl-k">=</span> <span class="pl-c1">WePay</span>::<span class="pl-c1">Client</span>.<span class="pl-k">new</span>(client_id, client_secret, use_stage)
+
+<span class="pl-c"># Get the OAuth 2.0 authorization URL. Send the user to this URL to authorize</span>
+<span class="pl-c"># the application, then they will return to your `redirect_uri` with a code as</span>
+<span class="pl-c"># a GET parameter.</span>
+redirect_uri <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>http://myexamplesite.com/wepay<span class="pl-pds">"</span></span>
+redirect_to(wepay.oauth2_authorize_url(redirect_uri))
+
+<span class="pl-c"># Once you have the OAuth 2.0 code, you can request an access token.</span>
+response <span class="pl-k">=</span> wepay.oauth2_token(code, redirect_uri)
+access_token <span class="pl-k">=</span> response[<span class="pl-s"><span class="pl-pds">'</span>access_token<span class="pl-pds">'</span></span>]
+
+<span class="pl-c"># Make a call to the `/user` endpoint (which requires no parameters).</span>
+response <span class="pl-k">=</span> wepay.call(<span class="pl-s"><span class="pl-pds">'</span>/user<span class="pl-pds">'</span></span>, access_token)
+
+<span class="pl-c"># You may also open a payment account for the user.</span>
+response <span class="pl-k">=</span> wepay.call(<span class="pl-s"><span class="pl-pds">'</span>/account/create<span class="pl-pds">'</span></span>, access_token, {
+  <span class="pl-c1">:name</span>        =&gt; <span class="pl-s"><span class="pl-pds">"</span>test account<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:description</span> =&gt; <span class="pl-s"><span class="pl-pds">"</span>this is only a test<span class="pl-pds">"</span></span>
+})</pre></div>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">'</span>wepay<span class="pl-pds">'</span></span></pre></div>
+
+<p>And include it in your scripts:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>wepay<span class="pl-pds">'</span></span></pre></div>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>Firstly, run <code>bundle install</code> to download and install the dependencies.</p>
+
+<p>You can run the tests as follows:</p>
+
+<div class="highlight highlight-bash"><pre>make <span class="pl-c1">test</span></pre></div>
+
+<h2>
+<a id="api-reference" class="anchor" href="#api-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Reference</h2>
+
+<p>The API Reference is generated by a tool called <a href="http://yardoc.org">YARD</a>. Once it's installed, you can generate
+updated documentation by running the following command in the root of the repository.</p>
+
+<div class="highlight highlight-bash"><pre>make docs</pre></div>
+
+<h2>
+<a id="deploying" class="anchor" href="#deploying" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deploying</h2>
+
+<p>The <code>Makefile</code> (yes, <code>Makefile</code>) has a series of commands to simplify the development and deployment process.</p>
+
+<h3>
+<a id="make" class="anchor" href="#make" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>make</code>
+</h3>
+
+<p>Running <code>make</code> by itself will show you a list of available sub-commands.</p>
+
+<div class="highlight highlight-bash"><pre>$ make
+all
+docs
+gem
+install
+pushdocs
+pushgem
+tag
+<span class="pl-c1">test</span>
+version</pre></div>
+
+<h3>
+<a id="make-pushdocs" class="anchor" href="#make-pushdocs" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>make pushdocs</code>
+</h3>
+
+<p>You will need to have write-access to the <code>wepay/Ruby-SDK</code> repository on GitHub. You should have already set up:</p>
+
+<ul>
+<li>Your SSH key with your GitHub account.</li>
+<li>Had your GitHub user given write-access to the repository.</li>
+</ul>
+
+<p>Then you can run:</p>
+
+<div class="highlight highlight-bash"><pre>make pushdocs</pre></div>
+
+<p>You can view your changes at <a href="https://wepay.github.io/Ruby-SDK/">https://wepay.github.io/Ruby-SDK/</a>.</p>
+
+<h3>
+<a id="make-pushgem" class="anchor" href="#make-pushgem" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>make pushgem</code>
+</h3>
+
+<p>You will need to have pulled-down the proper gem credentials first. When prompted, enter your
+<a href="http://rubygems.org">RubyGems</a> password.</p>
+
+<div class="highlight highlight-bash"><pre>curl -u qrush https://rubygems.org/api/v1/api_key.yaml <span class="pl-k">&gt;</span> \
+<span class="pl-k">~</span>/.gem/credentials<span class="pl-k">;</span> chmod 0600 <span class="pl-k">~</span>/.gem/credentials</pre></div>
+
+<p>Then you can run:</p>
+
+<div class="highlight highlight-bash"><pre>make pushgem</pre></div>
+
+<p>You can view your changes at <a href="https://rubygems.org/gems/wepay">https://rubygems.org/gems/wepay</a>.</p>
+
+<h3>
+<a id="make-tag" class="anchor" href="#make-tag" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>make tag</code>
+</h3>
+
+<p>You will need to have a <a href="https://keybase.io">Keybase</a> account first, including setting-up the
+<a href="https://keybase.io/docs/command_line/prerequisites"><code>keybase</code> CLI tool</a>.</p>
+
+<p>Then you can run:</p>
+
+<div class="highlight highlight-bash"><pre>make tag</pre></div>
+
+<p>You can view your changes in the <code>SIGNED.md</code> file.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Here's the process for contributing:</p>
+
+<ol>
+<li>Fork Signer to your GitHub account.</li>
+<li>Clone your GitHub copy of the repository into your local workspace.</li>
+<li>Write code, fix bugs, and add tests with 100% code coverage.</li>
+<li>Commit your changes to your local workspace and push them up to your GitHub copy.</li>
+<li>You submit a GitHub pull request with a description of what the change is.</li>
+<li>The contribution is reviewed. Maybe there will be some banter back-and-forth in the comments.</li>
+<li>If all goes well, your pull request will be accepted and your changes are merged in.</li>
+</ol>
+
+<h2>
+<a id="authors-copyright--licensing" class="anchor" href="#authors-copyright--licensing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors, Copyright &amp; Licensing</h2>
+
+<ul>
+<li>Copyright (c) 2015 <a href="http://wepay.com">WePay</a>
+</li>
+</ul>
+
+<p>See also the list of <a href="https://github.com/wepay/Ruby-SDK/graphs/contributors">contributors</a> who participated in this project.</p>
+
+<p>Licensed for use under the terms of the <a href="http://opensource.org/licenses/Apache-2.0">Apache 2.0</a> license.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wepay/Ruby-SDK">Ruby-sdk</a> is maintained by <a href="https://github.com/wepay">wepay</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
