@@ -66,14 +66,11 @@ module WePay
         'User-Agent'   => 'WePay Ruby SDK'
       })
 
-      unless params.empty?{}
-        params = params.merge({
-          "client_id"     => @client_id,
-          "client_secret" => @client_secret
-        })
+      unless params.empty?
+        call.body = params.to_json
       end
 
-      if access_token then call.add_field('Authorization: Bearer', access_token); end
+      if access_token then call.add_field('Authorization', "Bearer #{access_token}"); end
       if @api_version then call.add_field('Api-Version', @api_version); end
 
       make_request(call, url)
