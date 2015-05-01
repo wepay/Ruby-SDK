@@ -2,13 +2,13 @@
 ```
 -----BEGIN PGP SIGNATURE-----
 
-iQEcBAABCgAGBQJVOzwJAAoJEP9Zal5eC0aCNbUH/jRr5SCLosbObeF8YykcO5i/
-4qphvCCmQg1+u2yDskFdZRIgCuCpk/U9vgtr8OPOjQjR3+ryAV9d2O4yLZT5GcDU
-qH++zitiPJXrRmZAcQgk/SaA8kvuSIQLNYGr+Bx+1c05FecS/QJqaxSnMkdZeS/X
-zYK+H2PH7wNZo71cK9nizmNOX5aoVLXZFqomVNweoNWrzFZGUn9fEONeV2PiyrcL
-dnqLBbaILHZEdr7V10o616OoUc/p2zmPIjbxqLdKGc4XUzDhLlxBo6TmczTp5pm/
-3C8K+kMujMLeMpYbrj1+Z8Xp8VkF+/7Av1knEsV+4PLdExx7d6gMQR0vNSl6Tl4=
-=Y+My
+iQEcBAABCgAGBQJVQsdiAAoJEP9Zal5eC0aC5usIAJZFxinG/SSHdYXeni2fZG8v
+fX1mGg5VB5ew/TKP7o4x73P2DWjRyndWHQyuNiE1T9jq1VpOl1OIzXg1nd2nZ99e
+ShVS/R1rcG3NlqmWOyB2h2IrArF+oDadlF1kN1hTmBp+T3Kg9m7zT9WpZXNNJIZu
+H9hy1owy2JmZpIYTZozZ+pahIkrpQz2+WIWeCM+9BH3jFsCLpEA0YsTadXZHrWtu
+Fze6cU+xyxoac36M7TwEBKyxy4JNal1SnzxDUBgTiX6PFrj4pgwCJy8bsc/IB8Jq
+rBo+faEEANA3DLYJFAyeIzc1MXb7nG+v6jupecnB+WPc1hAvozKrvNUhhLv+0Bs=
+=2yGV
 -----END PGP SIGNATURE-----
 
 ```
@@ -29,32 +29,32 @@ size   exec  file                          contents
 95             .yardopts                   709afd40cd707eda6f0ef4859fc1775dbc128fb937f75fc29c64313723af3c2c
 60             bootstrap.rb                7566c33e1ae7c34f566c25418c3a9a44be44d229198eaf38751a78bcf11d3837
                doc/                                                                                        
-2915             _index.html               03b6322c143f9a10ef839fcfd08ab37c6f95a11dd71b2a49da699ff2f7c781aa
+2915             _index.html               d8fb21bd83b5334fc2d9b4ec4e6bc428df0cf7794d2cb672d66e5634c3330d4b
 2024             class_list.html           20aa0681986f496b95642433c076a51ec1e14bfa7a5bdf9dd94292a1d11958fc
                  css/                                                                                      
 42                 common.css              6c873bfb803e287ab497d61c7209eacb24c3b09e1542051146788fbe9b85c8a8
 5636               full_list.css           2986b912df079f954a6254739591e22c1d88fd06e64a75accb4b37b0d55e5733
 19750              style.css               023da8e9a5e7b6596b5e33a2b18f885ca14ec5e584dad880b0521535a790e6c9
 1470             file_list.html            fedb8fa58c4f2f5b6564c7a90157f7712d380161fb0f17b4253edcb0930f2c9e
-13031            file.README.html          7fb429cee313b689d8bd419a1744ae4890b44dacfe2c46c0edd4aa01c38df8d5
+13231            file.README.html          336e4ebc9191c91a3ceb486159e1d4cfbe940155f317926bc8cf3524c0caa11d
 446              frames.html               8428a95a56971f06f7ec7dccd62540db48a7e6a6dc0c8d334896385a963ca96b
-13032            index.html                b5f2fe5f7e0e41c6ebb34f93564f1e03df4f3d87a4765024fd01ac5d398d6f4d
+13230            index.html                820bc81d8c77add31254f63f79b41f51d46a7bbf1503c1780fa6bb6e57f0d268
                  js/                                                                                       
 7334               app.js                  dea27a5e318f21b2807573e04be6496dacfe4aa8055e16451be5aa0918a746a5
 5366               full_list.js            b4d789e972c352ee89c213cd92a760c05a2b00b222ee5d07c447cf071db493db
 93868              jquery.js               88171413fc76dda23ab32baa17b11e4fff89141c633ece737852445f1ba6c1bd
 3871             method_list.html          04f47c01697ae18dc2469a09d68e2b4d0a40f88e229ab298180b9cf5ae671ee8
-1202             sitemap.xml               2d6e757a4c134c764ea0ec1a6507caba3fa4927f1941389916ab412c56e3837d
-3554             top-level-namespace.html  d0cad09b73f857bc9e896cbc708543ee373f47e9f078ea6d3e7c9f5b13a87419
+1202             sitemap.xml               9dc299062ce890fe75affe45be082aeadf40f726914c7e392ec1c6fa0105fce6
+3554             top-level-namespace.html  b97a23a6978690ca1bc26faca6a607824775a04cd5c9fcbedd8d259dd51aaf2b
                  WePay/                                                                                    
-29089              Client.html             d49f5825e6913272da03266d217ce3c783f6465ac694837acbbacbfffdf19396
-2279             WePay.html                298bdebc69f44c08c87740c7434fda18767ec3f8833386a78b1b30df970299f7
+28698              Client.html             d3043375f426999d15bfe467cf78666f406c38f0a1b7e5cbd05aadad2893b81d
+2279             WePay.html                f427d7e2a3bb4fdac4791bc64e2eb50a8db4c930cb90c171b37ed149b2c03ee3
 359            Gemfile                     5ca1797875e529acb884d916b52aafdbbb2c1b0e51da5f7bcee8f2780d7bd0f2
                lib/                                                                                        
-3411             wepay.rb                  315e3bbddbcaafe8491be9c70971ca68bbff1dda7141f3dd63acd9ff1d9b4c10
+3320             wepay.rb                  b6c538b52e176a8ff1850867133cbbfd34943859203f95b84d8e96e7586b0183
 9202           LICENSE.md                  d86082393c045c6ee8fcef26a1680e31c72b2afb07f687ac337325747f341585
 2024           Makefile                    5f05e46040c104e66756b6d2666ae8d5d89c3c4996d55b7695366090fc797872
-5313           README.md                   1d43aee007d1c3c5ad24238ffee87b3975f024d24bf7943c267a2acc86380a51
+5479           README.md                   cb9eab5cb8ce68d7c27d2e874281983b9465f9c9a89d038da740be8c5ced3f5c
 272    x       test_helper.rb              bf6a93b327807078d75472c1205548b20df0192e7de967bff83b8001b272967e
 5              VERSION                     911fc0c48cb0c70601db5775a9bef1b740dc4cc9f9b46389b9f0563fe7eb94d7
 433            wepay.gemtmpl               45b559db98651ad5a0c9eefb12e91bedec958c9cd1f86c9108d4db72afd07647
