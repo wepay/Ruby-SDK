@@ -2,13 +2,13 @@
 ```
 -----BEGIN PGP SIGNATURE-----
 
-iQEcBAABCgAGBQJVQsdiAAoJEP9Zal5eC0aC5usIAJZFxinG/SSHdYXeni2fZG8v
-fX1mGg5VB5ew/TKP7o4x73P2DWjRyndWHQyuNiE1T9jq1VpOl1OIzXg1nd2nZ99e
-ShVS/R1rcG3NlqmWOyB2h2IrArF+oDadlF1kN1hTmBp+T3Kg9m7zT9WpZXNNJIZu
-H9hy1owy2JmZpIYTZozZ+pahIkrpQz2+WIWeCM+9BH3jFsCLpEA0YsTadXZHrWtu
-Fze6cU+xyxoac36M7TwEBKyxy4JNal1SnzxDUBgTiX6PFrj4pgwCJy8bsc/IB8Jq
-rBo+faEEANA3DLYJFAyeIzc1MXb7nG+v6jupecnB+WPc1hAvozKrvNUhhLv+0Bs=
-=2yGV
+iQEcBAABCgAGBQJVQseyAAoJEP9Zal5eC0aC0u0H/27I9HiD2g/bEMX57oZ+k2tX
+kYH3R25kPMFAjFPPYgkpmY7wpx7irIi3a8EOPp7AOTxb4dGtsnPIZYi7qMiDfHfO
+Dl1Wp3Xg5puCBSdC42U5qblcMUuy3X7qhJNYaHbPnKcLpLP2wKEfaj3t06wTO0wO
+V7Actt5/49Xumu6QRFFYKKQetUn/2O1KQHGbYWeSKM4XGHvAFqhPetQiNtmNvLK+
+b9XEfPVl9LLjl1goC+dbMyrQtvdfImLuBI/79sbzHLlqPZASZkmT/Qamx3wosPWK
+PWW1dgaJWH4878J+eHz6tfYof2iHY54mWxt1E2LnuIm10AYooBx9EOt1cdEVt8k=
+=+VH1
 -----END PGP SIGNATURE-----
 
 ```
@@ -56,7 +56,7 @@ size   exec  file                          contents
 2024           Makefile                    5f05e46040c104e66756b6d2666ae8d5d89c3c4996d55b7695366090fc797872
 5479           README.md                   cb9eab5cb8ce68d7c27d2e874281983b9465f9c9a89d038da740be8c5ced3f5c
 272    x       test_helper.rb              bf6a93b327807078d75472c1205548b20df0192e7de967bff83b8001b272967e
-5              VERSION                     911fc0c48cb0c70601db5775a9bef1b740dc4cc9f9b46389b9f0563fe7eb94d7
+5              VERSION                     196666d6a7eb4583fb9cb1e159971010b2e29b5b752aa73f456e0e2061b6425f
 433            wepay.gemtmpl               45b559db98651ad5a0c9eefb12e91bedec958c9cd1f86c9108d4db72afd07647
 ```
 
