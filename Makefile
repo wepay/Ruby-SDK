@@ -28,7 +28,7 @@ pushdocs: docs
 
 .PHONY: gem
 gem: version
-	@sed "s/@@version@@/$$(cat .\/VERSION)/" < ./wepay.gemtmpl > ./wepay.gemspec
+	@sed "s/@@version@@/$$(cat VERSION)/" < ./build/wepay.gemtmpl > ./wepay.gemspec
 	@cat ./wepay.gemspec | sed "s/@@date@@/$$(date "+%Y-%m-%d")/" > ./wepay.gemspec
 	gem build wepay.gemspec
 
@@ -47,6 +47,7 @@ tag:
 	@echo "---------------------------------------------------------------------"
 	@read -p "Press any key to continue, or press Control+C to cancel. " x;
 
+	@sed "s/@@version@@/$$(cat VERSION)/" < ./build/readme.tmpl > ./README.md
 	keybase dir sign
 	git add .
 	git commit -a -m "Cryptographically signed the $$(cat ./VERSION) release."
