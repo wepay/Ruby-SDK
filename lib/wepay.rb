@@ -87,10 +87,10 @@ module WePay
       user_name = false,
       permissions = "manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions"
     )
-      url = @ui_endpoint
-          + '/oauth2/authorize?client_id=' + @client_id.to_s
-          + '&redirect_uri=' + redirect_uri
-          + '&scope=' + permissions
+      url = @ui_endpoint +
+            '/oauth2/authorize?client_id=' + @client_id.to_s +
+            '&redirect_uri=' + redirect_uri +
+            '&scope=' + permissions
 
       url += user_name ? '&user_name=' + CGI::escape(user_name) : ''
       url += user_email ? '&user_email=' + CGI::escape(user_email) : ''
