@@ -85,7 +85,8 @@ module WePay
       redirect_uri,
       user_email = false,
       user_name = false,
-      permissions = "manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions"
+      permissions = "manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions",
+      user_country = false
     )
       url = @ui_endpoint +
             '/oauth2/authorize?client_id=' + @client_id.to_s +
@@ -94,6 +95,7 @@ module WePay
 
       url += user_name ? '&user_name=' + CGI::escape(user_name) : ''
       url += user_email ? '&user_email=' + CGI::escape(user_email) : ''
+      url += user_country ? '&user_country=' + CGI::escape(user_country) : ''
     end
 
     ##
