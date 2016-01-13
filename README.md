@@ -24,7 +24,7 @@ backwards-compatibility.
 ## Installation
 
 ```ruby
-gem 'wepay', '~> 0.2.2'
+gem 'wepay', '~> 0.2.3'
 ```
 
 And include it in your scripts:
