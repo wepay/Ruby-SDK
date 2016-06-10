@@ -1,10 +1,13 @@
 source "https://rubygems.org"
 
-gem 'rake'
+gem 'rake', '~> 11.1', '>= 11.1.2'
 
 group :test do
   gem 'rspec'
-  gem 'simplecov', :require => false
+  gem 'simplecov',                 :require => false
+  gem "codeclimate-test-reporter", :require => false
+  gem 'coveralls',                 :require => false
+  gem 'scrutinizer-ocular',        :require => false
 end
 
 group :docs do
