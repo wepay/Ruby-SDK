@@ -1,10 +1,10 @@
 language: ruby
 
 rvm:
-  - 1.9
   - 2.0
   - 2.1
   - 2.2
+  - 2.3
   - ruby-head
   - jruby-head
 
@@ -30,9 +30,3 @@ script:
 notifications:
   email:
     - ryan.parman@wepay.com
-  notifications:
-    hipchat:
-      rooms:
-        secure: e96uBaWwq5l/9PpN5C0sdYNP3GDPIqtp8iY7z2XYaFQ8nJQv8Gza96dhQuvozAGMaQ7dZoImKSSGPR5FAww7380uCRtVsQUEEL/AtC+4bB0uR6HTSgkyfFXh9cwsNwyEdaEP347jx4ZwlmLk7LFnHt7FOMsHEmrOkDLM1bX8Ui4=
-      template:
-        - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
