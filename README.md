@@ -69,7 +69,7 @@ Firstly, run `bundle install` to download and install the dependencies.
 You can run the tests as follows:
 
 ```bash
-make test
+bundle exec rake
 ```
 
 

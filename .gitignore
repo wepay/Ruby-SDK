@@ -1,6 +1,8 @@
 /.yardoc
 /*.gem
 /*.gemspec
-/coverage
+/.ruby-version
 /Gemfile.lock
-/vendor
+
+/spec/examples.txt
+/coverage

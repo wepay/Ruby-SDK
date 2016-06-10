@@ -9,7 +9,7 @@ install:
 
 .PHONY: test
 test: install
-	ruby ./test_helper.rb
+	rake
 
 #-------------------------------------------------------------------------------
 
