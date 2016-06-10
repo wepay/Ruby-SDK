@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'wepay'
 
 RSpec.configure do |config|
