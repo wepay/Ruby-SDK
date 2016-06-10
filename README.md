@@ -17,14 +17,16 @@ information, or you may email <api@wepay.com> if you have any other questions.
 This project uses [Semantic Versioning](http://semver.org) for managing
 backwards-compatibility.
 
-> **NOTE:** Version 0.2.0 is not strictly backwards-compatible with the earlier 0.0.x versions.
+> **NOTE:** Version 0.3.0 is not strictly backwards-compatible with the earlier 0.0.x versions.
+
+> **NOTE:** Due to impending PCI 3.x changes, we will be disabling support for TLS < 1.2 over our API. TLS 1.2 support requires Ruby 2.0.0. As such, while this SDK may function with Ruby 1.9, we no longer support it.
 
 * [API Reference](https://wepay.github.io/Ruby-SDK/)
 
 ## Installation
 
 ```ruby
-gem 'wepay', '~> 0.2.3'
+gem 'wepay', '~> 0.3.0'
 ```
 
 And include it in your scripts:
@@ -69,7 +71,7 @@ Firstly, run `bundle install` to download and install the dependencies.
 You can run the tests as follows:
 
 ```bash
-bundle exec rake
+make test
 ```
 
 
@@ -96,7 +98,7 @@ Here's the process for contributing:
 
 ## Authors, Copyright & Licensing
 
-* Copyright (c) 2015 [WePay](http://wepay.com)
+* Copyright (c) 2015–2016 [WePay](http://wepay.com)
 
 See also the list of [contributors](https://github.com/wepay/Ruby-SDK/graphs/contributors) who participated in this project.
 

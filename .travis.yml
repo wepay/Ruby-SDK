@@ -25,7 +25,7 @@ env:
 
 script:
   - bundle install --without docs
-  - bundle exec make test
+  - bundle exec rake
 
 notifications:
   email:

@@ -39,6 +39,7 @@ pushgem: gem
 .PHONY: readme
 readme:
 	@sed "s/@@version@@/$$(cat VERSION)/" < ./build/readme.tmpl > ./README.md
+	@cat ./README.md | sed "s/@@year@@/$$(date "+%Y")/" > ./README.md
 
 #-------------------------------------------------------------------------------
 
