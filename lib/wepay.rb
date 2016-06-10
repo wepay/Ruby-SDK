@@ -11,14 +11,7 @@ require 'net/https'
 require 'rubygems'
 require 'uri'
 
-##
-# The root WePay namespace.
-##
 module WePay
-
-  ##
-  # A very simple wrapper for the WePay API.
-  ##
   class Client
 
     # Stage API endpoint
@@ -39,20 +32,17 @@ module WePay
     attr_reader :client_secret
     attr_reader :ui_endpoint
 
-    ##
-    # Initializes the API application.
-    ##
     def initialize(client_id, client_secret, use_stage = true, api_version = nil)
-      @client_id = client_id.to_s
+      @client_id     = client_id.to_s
       @client_secret = client_secret.to_s
-      @api_version = api_version.to_s
+      @api_version   = api_version.to_s
 
       if use_stage
         @api_endpoint = STAGE_API_ENDPOINT
-        @ui_endpoint = STAGE_UI_ENDPOINT
+        @ui_endpoint  = STAGE_UI_ENDPOINT
       else
         @api_endpoint = PRODUCTION_API_ENDPOINT
-        @ui_endpoint = PRODUCTION_UI_ENDPOINT
+        @ui_endpoint  = PRODUCTION_UI_ENDPOINT
       end
     end
 
@@ -60,7 +50,9 @@ module WePay
     # Execute a call to the WePay API.
     ##
     def call(call, access_token = false, params = {})
-      url = URI.parse(@api_endpoint + (call[0,1] == '/' ? call : "/#{ call }"))
+      path = call.start_with?('/') ? call : call.prepend('/')
+      url  = URI.parse(api_endpoint + path)
+
       call = Net::HTTP::Post.new(url.path, initheader = {
         'Content-Type' => 'application/json',
         'User-Agent'   => 'WePay Ruby SDK'
@@ -83,9 +75,9 @@ module WePay
     ##
     def oauth2_authorize_url(
       redirect_uri,
-      user_email = false,
-      user_name = false,
-      permissions = "manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions",
+      user_email   = false,
+      user_name    = false,
+      permissions  = "manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions",
       user_country = false
     )
       url = @ui_endpoint +
@@ -93,8 +85,8 @@ module WePay
             '&redirect_uri=' + redirect_uri +
             '&scope=' + permissions
 
-      url += user_name ? '&user_name=' + CGI::escape(user_name) : ''
-      url += user_email ? '&user_email=' + CGI::escape(user_email) : ''
+      url += user_name ?    '&user_name='    + CGI::escape(user_name)    : ''
+      url += user_email ?   '&user_email='   + CGI::escape(user_email)   : ''
       url += user_country ? '&user_country=' + CGI::escape(user_country) : ''
     end
 
@@ -116,10 +108,11 @@ private
     # Make the HTTP request to the endpoint.
     ##
     def make_request(call, url)
-      request = Net::HTTP.new(url.host, url.port)
+      request              = Net::HTTP.new(url.host, url.port)
       request.read_timeout = 30
-      request.use_ssl = true
-      response = request.start {|http| http.request(call) }
+      request.use_ssl      = true
+
+      response = request.start { |http| http.request(call) }
       JSON.parse(response.body)
     end
   end
