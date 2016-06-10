@@ -18,7 +18,8 @@ sudo: false
 
 bundler_args: "--without docs"
 
-#before_script:
+before_script:
+  - gem install bundler
 
 script:
   - bundle install --without docs
