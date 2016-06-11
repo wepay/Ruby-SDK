@@ -1,3 +1,9 @@
+require 'coveralls'
+Coveralls.wear!
+
+require 'scrutinizer/ocular'
+Scrutinizer::Ocular.watch!
+
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
