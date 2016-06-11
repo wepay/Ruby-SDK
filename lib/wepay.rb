@@ -1,5 +1,5 @@
 ##
-# Copyright (c) 2015 WePay.
+# Copyright (c) 2012-2016 WePay.
 #
 # http://opensource.org/licenses/Apache2.0
 ##
@@ -11,7 +11,14 @@ require 'net/https'
 require 'rubygems'
 require 'uri'
 
+##
+# The root WePay namespace.
+##
 module WePay
+
+  ##
+  # A very simple wrapper for the WePay API.
+  ##
   class Client
 
     # Stage API endpoint
