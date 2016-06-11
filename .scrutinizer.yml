@@ -120,8 +120,7 @@ checks:
         lint_deprecated_class_methods: true
         lint_debugger: true
         lint_condition_position: true
-        lint_assignment_in_condition:
-            allow_safe_assignment: true
+        lint_assignment_in_condition: true
         lint_ambiguous_regexp_literal: true
         lint_ambiguous_operator: true
         style_line_length:
