@@ -372,7 +372,7 @@ RSpec.describe WePay::Client do
         end
       end
 
-      context "with customm params" do
+      context "with custom params" do
         it "returns the oauth2 authorize url" do
           expect(
             subject.oauth2_authorize_url(

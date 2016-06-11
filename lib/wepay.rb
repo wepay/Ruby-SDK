@@ -53,7 +53,7 @@ module WePay
       path = call.start_with?('/') ? call : call.prepend('/')
       url  = URI.parse(api_endpoint + path)
 
-      call = Net::HTTP::Post.new(url.path, initheader = {
+      call = Net::HTTP::Post.new(url.path, {
         'Content-Type' => 'application/json',
         'User-Agent'   => 'WePay Ruby SDK'
       })
