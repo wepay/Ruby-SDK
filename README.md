@@ -98,7 +98,7 @@ Here's the process for contributing:
 
 ## Authors, Copyright & Licensing
 
-* Copyright (c) 2012–2016 [WePay](http://wepay.com)
+* Copyright (c) 2012–2017 [WePay](http://wepay.com)
 
 See also the list of [contributors](https://github.com/wepay/Ruby-SDK/graphs/contributors) who participated in this project.
 
