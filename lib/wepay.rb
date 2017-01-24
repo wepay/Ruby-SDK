@@ -56,7 +56,7 @@ module WePay
     ##
     # Execute a call to the WePay API.
     ##
-    def call(call, access_token = false, params = {})
+    def call(call, access_token = false, params = {}, risk_token = false, client_ip = false)
       path = call.start_with?('/') ? call : call.prepend('/')
       url  = URI.parse(api_endpoint + path)
 
@@ -71,6 +71,8 @@ module WePay
 
       if access_token then call.add_field('Authorization', "Bearer #{access_token}"); end
       if @api_version then call.add_field('Api-Version', @api_version); end
+      if risk_token then call.add_field('WePay-Risk-Token', risk_token); end
+      if client_ip then call.add_field('Client-IP', client_ip); end
 
       make_request(call, url)
     end

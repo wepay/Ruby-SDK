@@ -358,6 +358,45 @@ RSpec.describe WePay::Client do
           expect(subject.call('/app','access_token', app_id: 1)).to eq('status' => 200)
         end
       end
+
+      context "making an api call with risk headers" do
+        subject do
+          described_class.new(
+            'client_id',
+            'client_secret'
+          )
+        end
+
+        before do
+          allow(Net::HTTP::Post).to receive(:new).with(
+            '/v2/app',
+            {
+              'Content-Type' => 'application/json',
+              'User-Agent'   => 'WePay Ruby SDK'
+            }
+          ).and_return(post_request)
+
+          allow(post_request).to receive(:body=).with({ app_id: 1 }.to_json)
+          allow(post_request).to receive(:add_field).with('Authorization', 'Bearer access_token')
+          allow(post_request).to receive(:add_field).with('Api-Version', '')
+          allow(post_request).to receive(:add_field).with('WePay-Risk-Token', 'risk_token')
+          allow(post_request).to receive(:add_field).with('Client-IP', 'client_ip')
+
+          allow(Net::HTTP).to receive(:new).with(
+            'stage.wepayapi.com',
+            443
+          ).and_return(post_client)
+
+          allow(post_client).to receive(:read_timeout=).with(30)
+          allow(post_client).to receive(:use_ssl=).with(true)
+          allow(post_client).to receive(:start).and_return(post_response)
+
+          allow(post_response).to receive(:body).and_return({ status: 200 }.to_json)
+        end
+        it "sets the risk headers" do
+          expect(subject.call('/app','access_token', {app_id: 1}, 'risk_token','client_ip')).to eq('status' => 200)
+        end
+      end
     end
 
     describe "#oauth2_authorize_url" do
